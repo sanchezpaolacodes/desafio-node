@@ -45,6 +45,7 @@ services:
       - MYSQL_DATABASE=nodedb
     volumes:
       - ./mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - mysql-data:/var/lib/mysql
     networks:
       - app-network
     healthcheck:
@@ -56,3 +57,6 @@ services:
 networks:
   app-network:
     driver: bridge
+
+volumes:
+  mysql-data:
